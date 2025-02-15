@@ -15,10 +15,10 @@ spec:
     spec:
       containers:
       - name:  {{Environment}}-{{ServiceName}}
-        image: ${IMAGE}
+        image: {{Image}}
         imagePullPolicy: Always
         ports:
-        - containerPort: ${PORT}
+        - containerPort: {{Port}}
 ---
 apiVersion: v1
 kind: Service
@@ -28,7 +28,7 @@ metadata:
 spec:
   ports:
     - port: 80
-      targetPort: ${PORT}
+      targetPort: {{Port}}
       protocol: TCP
   type: ClusterIP
   selector:
