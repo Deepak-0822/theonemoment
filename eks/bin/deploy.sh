@@ -22,7 +22,7 @@ echo "Port: ${PORT}"
 TEMPLATES_DIR="./eks/templates"
 
 # Determine the correct YAML template based on SERVICE_NAME
-TEMPLATE="${TEMPLATES_DIR}/eks-manifests"
+TEMPLATE="${TEMPLATES_DIR}/eks-manifests.yaml"
 
 # Debug: Print the selected template file
 echo "Using template: $TEMPLATE"
