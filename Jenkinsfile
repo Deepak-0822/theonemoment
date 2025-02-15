@@ -6,7 +6,7 @@ pipeline {
         PORT = "${params.Port}"
         ENVIRONMENT = "${params.Environment}"
         NAMESPACE = "${params.Namespace}"
-        ACCOUNT_ID = "${params.Account}"
+        ACCOUNTID = "${params.Account}"
         CLUSTER_NAME = "${params.Cluster}"
 
     }
@@ -33,12 +33,12 @@ stage('Generate YAML Files') {
             echo "Port: ${PORT}"
             echo "Environment: ${ENVIRONMENT}"
             echo "Namespace: ${NAMESPACE}"
-            echo "Account ID: ${ACCOUNT_ID}"
+            echo "Account ID: ${ACCOUNTID}"
 
             // Ensure deploy.sh has execute permission before running it
             sh """
               chmod +x ./eks/bin/deploy.sh
-              ./eks/bin/deploy.sh ${SERVICE_NAME} ${IMAGE} ${PORT} ${ENVIRONMENT}  ${NAMESPACE} ${ACCOUNT_ID} 
+              ./eks/bin/deploy.sh ${SERVICE_NAME} ${IMAGE} ${PORT} ${ENVIRONMENT}  ${NAMESPACE} ${ACCOUNTID} 
             """
         }
     }

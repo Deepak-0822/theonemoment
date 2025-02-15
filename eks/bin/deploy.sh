@@ -15,16 +15,14 @@ echo "Service Name: ${SERVICE_NAME}"
 echo "Environment: ${ENVIRONMENT}"
 echo "Image: ${IMAGE}"
 echo "Namespace: ${NAMESPACE}"
-echo "Account ID: ${ACCOUNT_ID}"
+echo "Account ID: ${ACCOUNTID}"
 echo "Port: ${PORT}"
 
 # Directory containing the templates
 TEMPLATES_DIR="./eks/templates"
 
 # Determine the correct YAML template based on SERVICE_NAME
-else
-    TEMPLATE="${TEMPLATES_DIR}/eks-manifests"
-fi
+TEMPLATE="${TEMPLATES_DIR}/eks-manifests"
 
 # Debug: Print the selected template file
 echo "Using template: $TEMPLATE"
