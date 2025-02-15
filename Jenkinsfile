@@ -29,16 +29,16 @@ stage('Generate YAML Files') {
         script {
             // Echo the values of the variables for validation before running deploy.sh
             echo "Service Name: ${SERVICE_NAME}"
-            echo "Environment: ${ENVIRONMENT}"
             echo "Image: ${IMAGE}"
+            echo "Port: ${PORT}"
+            echo "Environment: ${ENVIRONMENT}"
             echo "Namespace: ${NAMESPACE}"
             echo "Account ID: ${ACCOUNT_ID}"
-            echo "Port: ${PORT}"
 
             // Ensure deploy.sh has execute permission before running it
             sh """
               chmod +x ./eks/bin/deploy.sh
-              ./eks/bin/deploy.sh ${SERVICE_NAME} ${ENVIRONMENT} ${IMAGE} ${NAMESPACE} ${ACCOUNT_ID} ${PORT}
+              ./eks/bin/deploy.sh ${SERVICE_NAME} ${IMAGE} ${PORT} ${ENVIRONMENT}  ${NAMESPACE} ${ACCOUNT_ID} 
             """
         }
     }
@@ -64,7 +64,7 @@ stage('Generate YAML Files') {
                     ]]) {
                         // Login to AWS and update kubeconfig with the cluster name
                         sh """
-                        aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ap-south-2
+                        aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ap-south-1
                         kubectl apply -f ./eks/templates/updated.yaml --namespace ${NAMESPACE}
                         """
                     }
