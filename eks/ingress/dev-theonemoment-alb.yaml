@@ -1,0 +1,115 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: dev-apps
+  name: dev-theonemoment
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/load-balancer-name: dev-theonemoment
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:850995548837:certificate/307d2b26-6b30-4895-83a0-122c10ad50b7
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+spec:
+  ingressClassName: alb
+  rules:
+    - host: labregn.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-lab-regn
+                port:
+                  number: 80
+    - host: bookaroomregn.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-bookaroom-regn
+                port:
+                  number: 80
+    - host: doctorclinicregn.ktw.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-clinic-regn
+                port:
+                  number: 80
+    - host: doctorclinic.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-clinic
+                port:
+                  number: 80
+    - host: dietregn.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-diet-regn
+                port:
+                  number: 80
+    - host: diet.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-diet
+                port:
+                  number: 80
+    - host: bookroom.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-bookaroom
+                port:
+                  number: 80
+    - host: doctorregn.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-doctor-regn
+                port:
+                  number: 80
+    - host: doctor.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-doctor
+                port:
+                  number: 80
+    - host: lab.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-lab
+                port:
+                  number: 80
