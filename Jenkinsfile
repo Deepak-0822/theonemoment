@@ -52,7 +52,7 @@ stage('Generate YAML Files') {
                     def awsCredentialsId = ''
                     if (params.Environment in ['alpha']) {
                         awsCredentialsId = 'cdeksadmalpha'
-                    } else if (params.Environment in ['stg', 'uat', 'dev']) {
+                    } else if (params.Environment in ['stg', 'uat', 'dev', 'test']) {
                         awsCredentialsId = 'cdeksadmnp'
                     }
 
