@@ -8,7 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/healthcheck-path: /
     alb.ingress.kubernetes.io/load-balancer-name: dev-theonemoment
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:850995548837:certificate/307d2b26-6b30-4895-83a0-122c10ad50b7
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:850995548837:certificate/559d1eb4-eb51-4f71-aab8-7507a21537bb
     alb.ingress.kubernetes.io/ssl-redirect: '443'
 spec:
   ingressClassName: alb
@@ -111,5 +111,85 @@ spec:
             backend:
               service:
                 name: dev-web-lab
+                port:
+                  number: 80
+    - host: nurseregn.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-nurse
+                port:
+                  number: 80
+    - host: pharmacyregn.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-pharmacy-regn
+                port:
+                  number: 80
+    - host: pharmacy.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-pharmacy
+                port:
+                  number: 80
+    - host: physioclinicregn.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-physio-clinic-regn
+                port:
+                  number: 80
+    - host: physioclinic.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-physio-clinic
+                port:
+                  number: 80
+    - host: doctorphysioregn.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-physio-regn
+                port:
+                  number: 80
+    - host: physio.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-physio
+                port:
+                  number: 80
+    - host: joinourjourney.kwt.theonemoment.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-web-qr-code
                 port:
                   number: 80
