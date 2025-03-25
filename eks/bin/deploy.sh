@@ -22,7 +22,15 @@ echo "Port: ${PORT}"
 TEMPLATES_DIR="./eks/templates"
 
 # Determine the correct YAML template based on SERVICE_NAME
-TEMPLATE="${TEMPLATES_DIR}/eks-manifests.yaml"
+if [ "$SERVICE_NAME" == "api" ]; then
+    TEMPLATE="${TEMPLATES_DIR}/api.yaml"
+elif [ "$SERVICE_NAME" == "schedule-notification" ]; then
+    TEMPLATE="${TEMPLATES_DIR}/schedule-notification.yaml"
+elif [ "$SERVICE_NAME" == "rs-api" ]; then
+    TEMPLATE="${TEMPLATES_DIR}/rs-api.yaml"
+else
+    TEMPLATE="${TEMPLATES_DIR}/eks-manifests.yaml"
+fi
 
 # Debug: Print the selected template file
 echo "Using template: $TEMPLATE"
