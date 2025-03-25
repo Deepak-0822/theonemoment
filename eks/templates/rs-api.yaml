@@ -21,7 +21,7 @@ spec:
         - containerPort: {{Port}}
         env:
         - name: SECRET_NAMES
-          value: "{{Environment}/env/revenueapi/"
+          value: "{{Environment}}/env/revenueapi/"
 ---
 apiVersion: v1
 kind: Service
