@@ -19,7 +19,7 @@ pipeline {
                     branches: [[name: '*/main']], // Replace with the correct branch if needed
                     userRemoteConfigs: [[
                         url: 'https://github.com/Deepak-0822/theonemoment.git', // Replace with your repo URL
-                        // credentialsId: 'c70fd5a3-dbcc-45df-b4d6-098b46d25cc9' // Replace with your Bitbucket credentials ID
+                        credentialsId: 'github-token-dee' // Replace with your Bitbucket credentials ID
                     ]]
                 ])
             }
