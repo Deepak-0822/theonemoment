@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: dev-apps
+  name: dev-api
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name:  dev-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: dev-api
+    spec:
+      containers:
+      - name:  dev-api
+        image: 850995548837.dkr.ecr.ap-south-1.amazonaws.com/dev_backend_api:5a5ba35bc74d1a0adc598fe3538f22b43a5d6372
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+        - name: SECRET_NAMES
+          value: "dev/backend/env"
